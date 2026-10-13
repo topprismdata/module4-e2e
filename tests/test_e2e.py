@@ -91,3 +91,23 @@ def test_g5_台账篡改必红(env):
                                          for r in rows) + "\n", encoding="utf-8")
     with pytest.raises(LedgerTamperError):
         env["led"].verify()
+
+
+def test_g6_聚合四联跨矩阵字节稳定():
+    """perf-reconcile v0.3.0 聚合层在七仓 pin 环境复现（④WP30→WP31 接线）。"""
+    from perf_reconcile import dashboard, render_dashboard
+
+    doc = dashboard(
+        {"served_outlets": 30, "total_outlets": 100},
+        {"reps": ["张三", "李四"], "workdays": 5,
+         "visits_by_rep": {"张三": 20, "李四": 10}},
+        {"S1": "A", "S2": "B"},
+        _report(),
+    )
+    a = render_dashboard(doc)
+    b = render_dashboard(dashboard(
+        {"total_outlets": 100, "served_outlets": 30},  # kwargs 序不同
+        {"workdays": 5, "visits_by_rep": {"李四": 10, "张三": 20}, "reps": ["李四", "张三"]},
+        {"S2": "B", "S1": "A"}, _report()))
+    assert a == b
+    assert '"schema": "perf-dashboard@1.0"' in a

@@ -1,10 +1,10 @@
 [project]
 name = "module4-e2e"
-version = "0.1.0"
+version = "0.1.1"
 description = "模块④ 业绩分析集成 E2E：对照→诊断→行动→台账 七仓 tag 矩阵门禁"
 requires-python = ">=3.10"
 dependencies = [
-    "perf-reconcile @ git+https://github.com/topprismdata/perf-reconcile.git@v0.2.0",
+    "perf-reconcile @ git+https://github.com/topprismdata/perf-reconcile.git@v0.3.0",
     "service-rules @ git+https://github.com/topprismdata/service-rules.git@v0.3.0",
     "sraf @ git+https://github.com/topprismdata/sales-resource-allocation-framework.git@v0.2.0",
     "dq-workbench @ git+https://github.com/topprismdata/dq-workbench.git@v0.1.1",

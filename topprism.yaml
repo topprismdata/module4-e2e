@@ -8,7 +8,7 @@ topprism:
   evidence:
     type: automated-test-suite
     scope: >
-      CI 3.11+3.12; 5 门禁全绿（七仓 tag 矩阵）——偏差→诊断→工单→台账闭环/
-      报告字节稳定/KPI 越界进工作台/episode 重放锚/台账篡改必红。
+      CI 3.11+3.12; 6 门禁全绿（七仓 tag 矩阵）——偏差→诊断→工单→台账闭环/
+      报告字节稳定/KPI 越界进工作台/episode 重放锚/台账篡改必红/聚合四联跨矩阵字节稳定。
       真实打卡数据流待 App（④L12），本矩阵用合成合同数据。
   customer_data_in_repo: false
